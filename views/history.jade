@@ -4,22 +4,10 @@ div.row
     p.pull-right image by 
       a(href="#{headerImage.srcUrl}") #{headerImage.srcAuthor}
 div.hero-unit
-  div#meetings.carousel.slide
-    div.carousel-inner
+  ul
       each meeting, index in meetings
-        if index === 0
-          div.item.active
-            include shared/meeting
-        else
-          div.item
-            include shared/meeting
-    if meetings.length == 0
-      div.item
-        include shared/nomeeting
-    if meetings.length > 1
-      p
-        a.btn.btn-primary.btn-large.pull-left(href="#meetings", data-slide="prev") &laquo; Last
-        a.btn.btn-primary.btn-large.pull-right(href="#meetings", data-slide="next") Next &raquo;
+        li 
+          a(href="/meeting/#{meeting.id}") #{shortDate(meeting.time)} : #{meeting.name}
 
 div.row.detail-unit
   div.span4
