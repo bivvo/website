@@ -4,5 +4,6 @@ var home = require('./home'),
 
 module.exports = function(app) {
 	app.get('/', home.route);
-	app.get('/history', meetings.route);
+	app.get('/history', meetings.pastMeetings);
+	app.get('/meeting/:id', meetings.meetingById)
 };

@@ -1,0 +1,27 @@
+div.row
+  div.span12.header-image
+    img(src="#{headerImage.url}")
+    p.pull-right image by 
+      a(href="#{headerImage.srcUrl}") #{headerImage.srcAuthor}
+div.hero-unit
+  div#meetings.carousel.slide
+    div.carousel-inner
+    if meeting != null
+      div.item.active
+        include shared/meeting
+    else
+      div.item
+        include shared/nomeeting
+
+
+div.row.detail-unit
+  div.span4
+    include shared/widgets/details 
+  div.span4
+    include shared/widgets/location
+  div.span4
+    include shared/widgets/sponsors
+
+hr
+footer
+  p &copy OlyNode 2012
